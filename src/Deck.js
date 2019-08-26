@@ -33,9 +33,8 @@ export default class Deck extends Component {
     const { image, suit, value, code } = newCard.data.cards[0];
     const cardInfo = {
       image,
-      suit,
-      value,
-      code,
+      name: `${value} of ${suit}`,
+      id: code,
       randomDegree: this.generateRandom(45),
       randomMargin: this.generateRandom(20),
     };
@@ -62,10 +61,9 @@ export default class Deck extends Component {
         <div className="Deck-cards">
           {this.state.cards.map(card => (
             <Card
-              key={card.code}
+              key={card.id}
               img={card.image}
-              suit={card.suit}
-              val={card.value}
+              name={card.name}
               deg={card.randomDegree}
               margin={card.randomMargin}
             />
